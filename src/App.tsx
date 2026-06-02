@@ -1,4 +1,4 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HashRouter as BrowserRouter, Routes, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import About from './pages/About';
 import AddEquipment from './pages/AddEquipment';
@@ -38,7 +38,7 @@ HOW TO ADD A NEW PAGE:
 
 function App() {
   return (
-    <BrowserRouter basename={import.meta.env.BASE_URL}>
+    <BrowserRouter>
       {/* The main container taking full height with the dark theme */}
       <div className="flex flex-col h-screen w-full bg-brand-black text-white pb-20">
         
