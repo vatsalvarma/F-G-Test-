@@ -38,7 +38,7 @@ HOW TO ADD A NEW PAGE:
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       {/* The main container taking full height with the dark theme */}
       <div className="flex flex-col h-screen w-full bg-brand-black text-white pb-20">
         
