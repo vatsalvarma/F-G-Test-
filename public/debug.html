@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Debug - FarmGear</title>
+    <style>
+        body {
+            background: #1A1A1A;
+            color: white;
+            font-family: Arial;
+            padding: 40px;
+            text-align: center;
+        }
+        .status { 
+            color: #00ff00; 
+            font-size: 24px;
+            margin: 20px 0;
+        }
+        .info {
+            background: rgba(255,255,255,0.1);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            max-width: 600px;
+            text-align: left;
+        }
+        a {
+            color: #00ff00;
+            text-decoration: none;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>🚀 FarmGear Debug Page</h1>
+    <div class="status">✅ Deployment is WORKING!</div>
+    
+    <div class="info">
+        <h3>Current Status:</h3>
+        <p><strong>URL:</strong> <span id="url"></span></p>
+        <p><strong>Base Path:</strong> /F-G-Test-/</p>
+        <p><strong>Time:</strong> <span id="time"></span></p>
+        <p><strong>Last Deploy:</strong> <span id="deploy"></span></p>
+    </div>
+
+    <a href="/F-G-Test-/">🏠 Go to Main App</a>
+
+    <script>
+        document.getElementById('url').textContent = window.location.href;
+        document.getElementById('time').textContent = new Date().toLocaleString();
+        document.getElementById('deploy').textContent = new Date().toISOString();
+    </script>
+</body>
+</html>
