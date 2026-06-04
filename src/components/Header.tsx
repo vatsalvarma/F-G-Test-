@@ -1,7 +1,6 @@
 import { Bell, MapPin, Search, CheckCircle, Clock, AlertCircle } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useState } from 'react';
-import PWAInstallButton from './PWAInstallButton';
 
 /* 
 ================================================================================
@@ -122,12 +121,9 @@ export default function Header() {
           </div>
         </div>
 
-        <div className="flex items-center gap-2 mb-4 text-sm text-gray-300 font-medium justify-between">
-          <div className="flex items-center gap-2">
-            <MapPin size={16} className="text-white" />
-            <span>Hyderabad, Telangana</span>
-          </div>
-          <PWAInstallButton />
+        <div className="flex items-center gap-2 mb-4 text-sm text-gray-300 font-medium">
+          <MapPin size={16} className="text-white" />
+          <span>Hyderabad, Telangana</span>
         </div>
 
         <div className="relative">
