@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
-  base: '/FarmGear/',
+  base: '/F-G-Test-/',
   plugins: [
     react(),
     VitePWA({
@@ -18,7 +18,7 @@ export default defineConfig({
         theme_color: '#000000',
         background_color: '#ffffff',
         display: 'standalone',
-        start_url: '/FarmGear/',
+        start_url: '/F-G-Test-/',
         icons: [
           {
             src: 'farmgear-logo.svg',
