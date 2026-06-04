@@ -21,7 +21,7 @@ export default defineConfig({
         start_url: '/F-G-Test-/',
         icons: [
           {
-            src: 'farmgear-logo.svg',
+            src: 'favicon.svg',
             sizes: '192x192 512x512',
             type: 'image/svg+xml',
             purpose: 'any maskable'
