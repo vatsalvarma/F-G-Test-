@@ -25,15 +25,15 @@ ANIMATIONS:
 */
 
 const categories = [
-  { id: 1, name: 'Tractor', image: 'https://pngimg.com/uploads/need_for_speed/need_for_speed_PNG6.png', color: '#B5E550' }, // brand green
-  { id: 2, name: 'Rotavator', image: 'https://cdn-icons-png.flaticon.com/512/2821/2821815.png', color: '#ffb3ba' }, // pinkish
-  { id: 3, name: 'Harvester', image: 'https://cdn-icons-png.flaticon.com/512/6254/6254336.png', color: '#bae1ff' }, // bluish
-  { id: 4, name: 'JCB', image: 'https://cdn-icons-png.flaticon.com/512/3063/3063822.png', color: '#dcd3ff' }, // purpleish
-  { id: 5, name: 'Sprayer', image: 'https://cdn-icons-png.flaticon.com/512/4608/4608104.png', color: '#ffffba' }, // yellowish
-  { id: 6, name: 'Seed Machine', image: 'https://cdn-icons-png.flaticon.com/512/3225/3225094.png', color: '#ffdfba' }, // orangeish
-  { id: 7, name: 'Truck', image: 'https://cdn-icons-png.flaticon.com/512/870/870188.png', color: '#baffc9' }, // mint
-  { id: 8, name: 'Agri Drone', image: 'https://cdn-icons-png.flaticon.com/512/6009/6009623.png', color: '#f0e6ef' }, // light
-  { id: 9, name: 'Geologist', image: 'https://cdn-icons-png.flaticon.com/512/10061/10061805.png', color: '#e0fbfc' }, // cyan
+  { id: 1, name: 'Tractor', image: 'https://pngimg.com/uploads/need_for_speed/need_for_speed_PNG6.png', color: 'black' }, // brand green
+  { id: 2, name: 'Rotavator', image: 'https://cdn-icons-png.flaticon.com/512/2821/2821815.png', color: 'black' }, // pinkish
+  { id: 3, name: 'Harvester', image: 'https://cdn-icons-png.flaticon.com/512/6254/6254336.png', color: 'black' }, // bluish
+  { id: 4, name: 'JCB', image: 'https://cdn-icons-png.flaticon.com/512/3063/3063822.png', color: 'black' }, // purpleish
+  { id: 5, name: 'Sprayer', image: 'https://cdn-icons-png.flaticon.com/512/4608/4608104.png', color: 'black' }, // yellowish
+  { id: 6, name: 'Seed Machine', image: 'https://cdn-icons-png.flaticon.com/512/3225/3225094.png', color: 'black' }, // orangeish
+  { id: 7, name: 'Truck', image: 'https://cdn-icons-png.flaticon.com/512/870/870188.png', color: 'black' }, // mint
+  { id: 8, name: 'Agri Drone', image: 'https://cdn-icons-png.flaticon.com/512/6009/6009623.png', color: ' black' }, // light
+  { id: 9, name: 'Geologist', image: 'https://cdn-icons-png.flaticon.com/512/10061/10061805.png', color: 'black' }, // cyan
 ];
 
 export default function CategoryScroll() {

@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react'
 import { VitePWA } from 'vite-plugin-pwa'
 
 export default defineConfig({
-  base: '/Omini-App/',
+  base: '/FarmGear/',
   plugins: [
     react(),
     VitePWA({
@@ -12,16 +12,16 @@ export default defineConfig({
         enabled: true
       },
       manifest: {
-        name: 'Omni',
-        short_name: 'Omni',
-        description: 'Omni Progressive Web App',
+        name: 'FarmGear',
+        short_name: 'FarmGear',
+        description: 'FarmGear Connect - Equipment Rental Platform',
         theme_color: '#000000',
         background_color: '#ffffff',
         display: 'standalone',
-        start_url: '/Omini-App/',
+        start_url: '/FarmGear/',
         icons: [
           {
-            src: 'omni-logo.svg',
+            src: 'farmgear-logo.svg',
             sizes: '192x192 512x512',
             type: 'image/svg+xml',
             purpose: 'any maskable'
