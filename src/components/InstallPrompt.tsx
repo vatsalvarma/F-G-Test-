@@ -11,6 +11,85 @@ interface BeforeInstallPromptEvent extends Event {
   prompt(): Promise<void>;
 }
 
+// ─────────────────────────────────────────────────────────────
+//  Same proper gear as SplashScreen — white, mathematically correct
+// ─────────────────────────────────────────────────────────────
+function GearSVG({
+  size = 80,
+  teeth = 10,
+}: {
+  size?: number;
+  teeth?: number;
+}) {
+  const cx = size / 2;
+  const cy = size / 2;
+  const outerR = size * 0.46;
+  const pitchR = size * 0.36;
+  const holeR  = size * 0.14;
+  const hubR   = size * 0.20;
+
+  const toothAngle = (2 * Math.PI) / teeth;
+  const halfTooth  = toothAngle * 0.22;
+  const halfTrough = toothAngle * 0.28;
+
+  let d = '';
+  for (let i = 0; i < teeth; i++) {
+    const base   = i * toothAngle - Math.PI / 2;
+    const angles = [
+      base - halfTrough,
+      base - halfTooth,
+      base + halfTooth,
+      base + halfTrough,
+    ];
+    const radii = [pitchR, outerR, outerR, pitchR];
+    angles.forEach((a, j) => {
+      const x = cx + radii[j] * Math.cos(a);
+      const y = cy + radii[j] * Math.sin(a);
+      d += i === 0 && j === 0 ? `M ${x.toFixed(2)} ${y.toFixed(2)} ` : `L ${x.toFixed(2)} ${y.toFixed(2)} `;
+    });
+  }
+  d += 'Z';
+
+  // Counter-clockwise hole to cut out center
+  const pts = 60;
+  let hole = '';
+  for (let i = 0; i <= pts; i++) {
+    const a = (i / pts) * 2 * Math.PI;
+    hole += i === 0
+      ? `M ${(cx + holeR * Math.cos(a)).toFixed(2)} ${(cy + holeR * Math.sin(a)).toFixed(2)} `
+      : `L ${(cx + holeR * Math.cos(a)).toFixed(2)} ${(cy + holeR * Math.sin(a)).toFixed(2)} `;
+  }
+  hole += 'Z';
+
+  return (
+    <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`} fill="none">
+      <defs>
+        <filter id="gearGlowInstall" x="-25%" y="-25%" width="150%" height="150%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="2.5" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+      </defs>
+      {/* Gear body with hole cut out */}
+      <path
+        d={`${d} ${hole}`}
+        fill="white"
+        fillRule="evenodd"
+        filter="url(#gearGlowInstall)"
+        opacity={0.95}
+      />
+      {/* Hub disc */}
+      <circle cx={cx} cy={cy} r={hubR} fill="white" opacity={0.95} filter="url(#gearGlowInstall)" />
+      {/* Center hole */}
+      <circle cx={cx} cy={cy} r={holeR} fill="#0d0d0d" />
+      {/* Center dot */}
+      <circle cx={cx} cy={cy} r={size * 0.05} fill="white" />
+    </svg>
+  );
+}
+
 export default function InstallPrompt() {
   const [deferredPrompt, setDeferredPrompt] = useState<BeforeInstallPromptEvent | null>(null);
   const [isVisible, setIsVisible] = useState(false);
@@ -89,20 +168,39 @@ export default function InstallPrompt() {
               boxShadow: '0 30px 80px rgba(0,0,0,0.6)',
             }}
           >
-            {/* App Logo */}
+            {/* Spinning gear + brand name */}
             <div className="flex flex-col items-center gap-3 mb-8">
-              {/* Replace with your logo */}
-              <motion.div
-                animate={{ scale: [1, 1.05, 1] }}
-                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-                className="relative flex items-center justify-center"
-              >
-                <img 
-                  src="/F-G-Test-/pwa-192x192.png" 
-                  alt="FarmGear Logo" 
-                  className="w-24 h-24 rounded-2xl shadow-2xl"
+              {/* Dual counter-rotating gears */}
+              <div className="relative flex items-center justify-center" style={{ width: 110, height: 90 }}>
+                {/* Large gear — clockwise */}
+                <motion.div
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 7, repeat: Infinity, ease: 'linear' }}
+                  style={{ position: 'absolute', left: 0, top: 8 }}
+                >
+                  <GearSVG size={72} teeth={12} />
+                </motion.div>
+
+                {/* Small gear — counter-clockwise */}
+                <motion.div
+                  animate={{ rotate: -360 }}
+                  transition={{ duration: 4.67, repeat: Infinity, ease: 'linear' }}
+                  style={{ position: 'absolute', right: 0, top: 28 }}
+                >
+                  <GearSVG size={46} teeth={8} />
+                </motion.div>
+
+                {/* Shimmer halo */}
+                <motion.div
+                  className="absolute pointer-events-none rounded-full"
+                  style={{
+                    width: 100, height: 100,
+                    background: 'conic-gradient(transparent 0deg, rgba(255,255,255,0.05) 45deg, transparent 90deg)',
+                  }}
+                  animate={{ rotate: 360 }}
+                  transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
                 />
-              </motion.div>
+              </div>
 
               {/* Brand name */}
               <div className="flex flex-col items-center leading-none">
