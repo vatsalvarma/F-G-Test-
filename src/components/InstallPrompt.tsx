@@ -168,39 +168,20 @@ export default function InstallPrompt() {
               boxShadow: '0 30px 80px rgba(0,0,0,0.6)',
             }}
           >
-            {/* Spinning gear + brand name */}
+            {/* App Logo */}
             <div className="flex flex-col items-center gap-3 mb-8">
-              {/* Dual counter-rotating gears */}
-              <div className="relative flex items-center justify-center" style={{ width: 110, height: 90 }}>
-                {/* Large gear — clockwise */}
-                <motion.div
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 7, repeat: Infinity, ease: 'linear' }}
-                  style={{ position: 'absolute', left: 0, top: 8 }}
-                >
-                  <GearSVG size={72} teeth={12} />
-                </motion.div>
-
-                {/* Small gear — counter-clockwise */}
-                <motion.div
-                  animate={{ rotate: -360 }}
-                  transition={{ duration: 4.67, repeat: Infinity, ease: 'linear' }}
-                  style={{ position: 'absolute', right: 0, top: 28 }}
-                >
-                  <GearSVG size={46} teeth={8} />
-                </motion.div>
-
-                {/* Shimmer halo */}
-                <motion.div
-                  className="absolute pointer-events-none rounded-full"
-                  style={{
-                    width: 100, height: 100,
-                    background: 'conic-gradient(transparent 0deg, rgba(255,255,255,0.05) 45deg, transparent 90deg)',
-                  }}
-                  animate={{ rotate: 360 }}
-                  transition={{ duration: 4, repeat: Infinity, ease: 'linear' }}
+              {/* Replace with your logo */}
+              <motion.div
+                animate={{ scale: [1, 1.05, 1] }}
+                transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
+                className="relative flex items-center justify-center"
+              >
+                <img 
+                  src="/F-G-Test-/pwa-192x192.png" 
+                  alt="FarmGear Logo" 
+                  className="w-24 h-24 rounded-2xl shadow-2xl"
                 />
-              </div>
+              </motion.div>
 
               {/* Brand name */}
               <div className="flex flex-col items-center leading-none">
